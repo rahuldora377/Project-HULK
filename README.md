@@ -1,8 +1,12 @@
-# Project HULK
+<p align="center">
+  <img width="128" height="128" alt="Project HULK" src="https://github.com/user-attachments/assets/dfa7c9d7-318f-42de-afdd-5397fad003c2" />
+</p>
 
-**A modern browser recon toolkit for Chrome & Firefox.**
+<h1 align="center">Project HULK</h1>
 
-Project HULK is a browser extension for security testing, focused on fast, local reconnaissance from the active browser tab.
+<h2 align="center"> A modern browser recon toolkit for Chrome & Firefox.</h2>
+
+<h3 align="center"> Project HULK is a browser extension for security testing, focused on fast, local reconnaissance from the browser tab. </h3>
 
 ## ✨ Features
 
@@ -55,7 +59,7 @@ and load `projectHulk/firefox/manifest.json`.
 
 **For authorized security testing only.**
 
-Use HULK only against systems you own or have explicit permission to test.
+Use ProjectHULK only against systems you own or have explicit permission to test.
 
 ### License
 
