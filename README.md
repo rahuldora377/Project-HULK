@@ -27,7 +27,7 @@ Project HULK is a browser extension for security testing, focused on fast, local
 ### Chrome / Chromium
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/rahuldora377/Project-HULK.git
 cd projectHulk
 ```
 
