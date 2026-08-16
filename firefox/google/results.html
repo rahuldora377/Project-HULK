@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HULK — Google Domains Results</title>
+  <link rel="stylesheet" href="results.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="M9 8.5v7M15 8.5v7M9 12h6"/></svg>
+      </span>
+      <div class="brand-text">
+        <h1>Google Domains</h1>
+        <span class="tagline" id="run-meta">No run yet</span>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" data-tooltip="Toggle light/dark theme" type="button"></button>
+      <button id="back-to-tabs" class="btn ghost" type="button">Close</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- Stats cards -->
+    <section class="stats" id="stats" aria-label="Scrape statistics"></section>
+
+    <!-- Chart -->
+    <section class="card chart-card">
+      <h2>Top TLDs</h2>
+      <div id="chart" class="chart" aria-label="Bar chart of top-level domains"></div>
+    </section>
+
+    <!-- Results list -->
+    <section class="card results-card">
+      <div class="toolbar">
+        <div class="search">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input id="search" type="search" placeholder="Filter domains…  ( / )" aria-label="Filter domains" autocomplete="off" />
+        </div>
+        <select id="sort" class="field" aria-label="Sort results">
+          <option value="name">Name A–Z</option>
+          <option value="name-desc">Name Z–A</option>
+          <option value="count">Count ↑</option>
+          <option value="count-desc">Count ↓</option>
+        </select>
+        <div class="seg" role="group" aria-label="View mode">
+          <button id="view-grid" class="seg-btn active" type="button" aria-pressed="true" data-tooltip="Grid view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </button>
+          <button id="view-list" class="seg-btn" type="button" aria-pressed="false" data-tooltip="List view">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="result-toolbar">
+        <span id="count-info" class="count-info" aria-live="polite">0 domains</span>
+        <div class="actions">
+          <button id="copy-all" class="btn ghost" type="button">Copy all domains</button>
+          <button id="copy-urls" class="btn ghost" type="button">Copy URLs</button>
+          <button id="export-csv" class="btn ghost" type="button">CSV</button>
+          <button id="export-json" class="btn ghost" type="button">JSON</button>
+          <button id="print" class="btn ghost" type="button">Print / PDF</button>
+        </div>
+      </div>
+
+      <ul id="list" class="grid" aria-label="Domain list"></ul>
+
+      <div id="empty" class="empty" hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        <p id="empty-text">No domains yet — run the scraper from the popup.</p>
+      </div>
+
+      <nav class="pager" aria-label="Pagination">
+        <button id="prev" class="btn ghost" type="button" aria-label="Previous page">← Prev</button>
+        <span id="page-info" class="page-info" aria-live="polite"></span>
+        <button id="next" class="btn ghost" type="button" aria-label="Next page">Next →</button>
+      </nav>
+    </section>
+
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="domain-utils.js"></script>
+  <script src="config.js"></script>
+  <script src="logger.js"></script>
+  <script src="results.js"></script>
+</body>
+</html>

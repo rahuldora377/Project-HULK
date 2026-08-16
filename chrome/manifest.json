@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Project HULK",
+  "version": "2.2.0",
+  "description": "Recon toolkit: payloads, JS files, relative paths and Google domain extraction.",
+  "minimum_chrome_version": "111",
+  "permissions": [
+    "tabs",
+    "scripting",
+    "storage",
+    "clipboardWrite",
+    "activeTab",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://www.google.com/*",
+    "http://www.google.com/*",
+    "https://google.com/*",
+    "http://google.com/*"
+  ],
+  "background": {
+    "service_worker": "google/scraper.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Project HULK — Recon Toolkit",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

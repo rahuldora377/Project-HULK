@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <title>Project HULK</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <!-- ================= Header ================= -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/><path d="M9 8.5v7M15 8.5v7M9 12h6"/></svg>
+      </span>
+      <div class="brand-text">
+        <h1>Project HULK</h1>
+        <span class="tagline">Gamma recon toolkit</span>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme" data-tooltip="Toggle light/dark theme" type="button"></button>
+      <button id="popout-btn" class="icon-btn" aria-label="Open as resizable window" data-tooltip="Open as window" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= Tab navigation ================= -->
+  <nav class="tabnav" role="tablist" aria-label="Tool sections">
+    <button role="tab" aria-selected="true" data-tab="dashboard" class="tab-btn active" id="tab-dashboard" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span>Dashboard</span>
+    </button>
+    <button role="tab" aria-selected="false" data-tab="jsfiles" class="tab-btn" id="tab-jsfiles" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      <span>JS Files</span>
+    </button>
+    <button role="tab" aria-selected="false" data-tab="paths" class="tab-btn" id="tab-paths" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+      <span>Paths</span>
+    </button>
+    <button role="tab" aria-selected="false" data-tab="subdomains" class="tab-btn" id="tab-subdomains" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span>Subdomains</span>
+    </button>
+    <button role="tab" aria-selected="false" data-tab="scrape" class="tab-btn" id="tab-scrape" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span>Scrape</span>
+    </button>
+    <button role="tab" aria-selected="false" data-tab="payloads" class="tab-btn" id="tab-payloads" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>Payloads</span>
+    </button>
+    <button role="tab" aria-selected="false" data-tab="settings" class="tab-btn" id="tab-settings" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      <span>Settings</span>
+    </button>
+  </nav>
+
+  <!-- ================= Panes ================= -->
+  <main class="panes">
+    <section role="tabpanel" aria-label="Dashboard" id="pane-dashboard" class="pane active" tabindex="0"></section>
+    <section role="tabpanel" aria-label="Payloads" id="pane-payloads" class="pane" tabindex="0" hidden></section>
+    <section role="tabpanel" aria-label="JS Files" id="pane-jsfiles" class="pane" tabindex="0" hidden></section>
+    <section role="tabpanel" aria-label="Relative Paths" id="pane-paths" class="pane" tabindex="0" hidden></section>
+    <section role="tabpanel" aria-label="Subdomains" id="pane-subdomains" class="pane" tabindex="0" hidden></section>
+    <section role="tabpanel" aria-label="Google Scraper" id="pane-scrape" class="pane" tabindex="0" hidden></section>
+    <section role="tabpanel" aria-label="Settings" id="pane-settings" class="pane" tabindex="0" hidden></section>
+  </main>
+
+  <!-- ================= Status bar ================= -->
+  <footer class="statusbar">
+    <span class="status-dot" id="status-dot" aria-hidden="true"></span>
+    <span class="status-text" id="status-text">Ready</span>
+    <span class="status-spacer"></span>
+    <span class="status-version" id="status-version"></span>
+    <span class="status-tab" id="status-tab">Dashboard</span>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Scripts (CSP: script-src 'self') -->
+  <script src="google/domain-utils.js"></script>
+  <script src="google/config.js"></script>
+  <script src="google/logger.js"></script>
+  <script src="tabs/common.js"></script>
+  <script src="tabs/dashboard.js"></script>
+  <script src="tabs/payloads.js"></script>
+  <script src="tabs/jsfiles.js"></script>
+  <script src="tabs/paths.js"></script>
+  <script src="tabs/subdomains.js"></script>
+  <script src="tabs/scrape.js"></script>
+  <script src="tabs/settings.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
